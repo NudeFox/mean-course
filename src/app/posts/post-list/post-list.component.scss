@@ -1,0 +1,23 @@
+:host {
+  display: block;
+  margin-top: 1rem;
+}
+
+.info-text {
+  text-align: center;
+}
+
+.spinner-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 200px);
+}
+
+.mat-expansion-panel {
+  transition: none;
+}
+
+.pagination {
+  margin-top: 1rem;
+}

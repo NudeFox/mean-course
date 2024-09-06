@@ -1,0 +1,31 @@
+.my-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #004f4f;
+  margin-bottom: 20px;
+}
+
+.app-title {
+  color: white;
+  font-size: 24px;
+  margin-right: 24px;
+  cursor: pointer;
+  text-decoration: none;
+
+  :focus,
+  :hover,
+  :active,
+  :visited {
+    text-decoration: none;
+  }
+}
+
+nav {
+  display: flex;
+  align-items: center;
+
+  .nav-link {
+    height: 30px;
+  }
+}

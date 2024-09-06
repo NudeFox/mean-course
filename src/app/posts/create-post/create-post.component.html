@@ -1,0 +1,58 @@
+<mat-card appearance="outlined">
+  <mat-card-content>
+    <form [formGroup]="postForm">
+      <mat-form-field>
+        <input
+          matInput
+          formControlName="title"
+          placeholder="Write your post title..."
+        />
+        @if (postForm.controls["title"].hasError("required")) {
+          <mat-error>Please enter a title</mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field>
+        <textarea
+          matInput
+          formControlName="content"
+          rows="6"
+          placeholder="Write your message here..."
+        ></textarea>
+        @if (postForm.controls["content"].hasError("required")) {
+          <mat-error>Please enter a message</mat-error>
+        }
+      </mat-form-field>
+
+      @if (imagePreview && postForm.controls["image"].valid) {
+        <div class="image-preview">
+          <img [src]="imagePreview" alt="Preview uploaded image" />
+        </div>
+      }
+      <div class="file-upload">
+        <button
+          mat-raised-button
+          color="primary"
+          type="button"
+          (click)="filePicker.click()"
+        >
+          <mat-icon>cloud_upload</mat-icon>
+          {{ imagePreview ? "Change" : "Select" }} Image
+        </button>
+        @if (postForm.controls["image"].hasError("invalidMimeType")) {
+          <p class="error-hint">
+            Please provide an image with a valid file type (png, jpg, jpeg)
+          </p>
+        }
+        <input
+          type="file"
+          #filePicker
+          (change)="filePickerChanged($event)"
+          accept=".png, .jpg, .jpeg"
+        />
+
+        <button mat-raised-button (click)="savePost()">Save Post</button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

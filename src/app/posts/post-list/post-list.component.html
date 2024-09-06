@@ -1,0 +1,43 @@
+@if (isLoadingPosts) {
+  <div class="spinner-wrapper">
+    <mat-spinner />
+  </div>
+} @else {
+  <mat-accordion>
+    @for (post of posts; track post.id) {
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          {{ post.title }}
+        </mat-expansion-panel-header>
+        <p>{{ post.content }}</p>
+        @if (post.imagePath) {
+          <div class="post-image">
+            <img [src]="post.imagePath" [alt]="post.title + ' image'" />
+          </div>
+        }
+        <mat-action-row>
+          <button mat-button color="primary" (click)="editPost(post.id)">
+            Edit
+          </button>
+          <button mat-button color="warn" (click)="deletePost(post.id)">
+            Delete
+          </button>
+        </mat-action-row>
+      </mat-expansion-panel>
+    } @empty {
+      <p class="info-text mat-body-large">No posts added yet!</p>
+    }
+  </mat-accordion>
+  @if (totalPosts() > 0) {
+    <div class="pagination">
+      <mat-paginator
+        [length]="totalPosts()"
+        [pageSize]="postsPerPage"
+        [pageSizeOptions]="pageSizeOptions"
+        [pageIndex]="currentPage - 1"
+        (page)="paginationChanged($event)"
+        aria-label="Select page"
+      />
+    </div>
+  }
+}
