@@ -1,1 +1,47 @@
-<p>signup works!</p>
+<div class="signup-header">
+  <h1>Sign Up</h1>
+  <p><em>Create your new account</em></p>
+</div>
+<mat-card appearance="outlined">
+  <mat-card-content>
+    <form (submit)="onSignup(signupForm)" #signupForm="ngForm">
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input
+          matInput
+          type="email"
+          name="email"
+          placeholder="Ex. pat@example.com"
+          ngModel
+          #emailInput="ngModel"
+          required
+          email
+        />
+        @if (emailInput.invalid) {
+          <mat-error>Please enter a valid email</mat-error>
+        }
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          type="password"
+          placeholder="Enter password"
+          name="password"
+          ngModel
+          #passwordInput="ngModel"
+          required
+        />
+        @if (passwordInput.invalid) {
+          <mat-error>Please enter a valid password</mat-error>
+        }
+      </mat-form-field>
+
+      <div class="bottom-section">
+        <button mat-raised-button color="primary">Submit</button>
+        <p>Already have an account? <a href="/login">Login</a></p>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

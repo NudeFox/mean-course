@@ -1,0 +1,56 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  :host {
+    width: 40%;
+    margin: 15% auto 0;
+  }
+}
+
+.signin-header {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #007b7b;
+
+  h1 {
+    font-weight: bold;
+    margin: 10px;
+  }
+}
+
+.bottom-section {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+
+  button {
+    width: 50%;
+  }
+
+  p {
+    font-size: 0.8rem;
+    color: #666;
+    margin: 0;
+  }
+
+  a {
+    color: #007bff;
+    &:visited,
+    &:active,
+    &:focus {
+      color: #007bff;
+    }
+  }
+}

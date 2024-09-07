@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { PostListComponent } from './posts/post-list/post-list.component';
+import authRoutes from './auth/auth.routes';
 
 export const routes: Routes = [
   {
@@ -20,4 +21,5 @@ export const routes: Routes = [
         (m) => m.CreatePostComponent,
       ),
   },
+  ...authRoutes,
 ];
