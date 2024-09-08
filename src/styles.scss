@@ -9,3 +9,48 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+.my-snackbar {
+  &.mat-mdc-snack-bar-container {
+    width: 402px;
+    max-width: inherit;
+    min-height: inherit;
+    padding: 0;
+    border-radius: 8px;
+
+    .mdc-snackbar__surface {
+      background-color: initial;
+      box-shadow: none;
+    }
+
+    .mdc-snackbar__label {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    &.min-width {
+      width: auto;
+      min-width: 378px;
+    }
+
+    &.success {
+      background: #1c4b31;
+      box-shadow: 0 15px 25px rgba(58, 175, 140, 0.35);
+    }
+
+    &.warning {
+      background: #ea6114;
+      box-shadow: 0 15px 25px rgba(247, 157, 107, 0.35);
+    }
+
+    &.error {
+      background: #cf0f0f;
+      box-shadow: 0 15px 25px rgba(253, 117, 117, 0.35);
+    }
+  }
+
+  .mat-mdc-progress-spinner circle,
+  .mat-mdc-progress-spinner circle {
+    stroke: #fff;
+  }
+}

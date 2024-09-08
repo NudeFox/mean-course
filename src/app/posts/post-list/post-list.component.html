@@ -15,14 +15,16 @@
             <img [src]="post.imagePath" [alt]="post.title + ' image'" />
           </div>
         }
-        <mat-action-row>
-          <button mat-button color="primary" (click)="editPost(post.id)">
-            Edit
-          </button>
-          <button mat-button color="warn" (click)="deletePost(post.id)">
-            Delete
-          </button>
-        </mat-action-row>
+        @if (isAuthenticated && post.creator === userId) {
+          <mat-action-row>
+            <button mat-button color="primary" (click)="editPost(post.id)">
+              Edit
+            </button>
+            <button mat-button color="warn" (click)="deletePost(post.id)">
+              Delete
+            </button>
+          </mat-action-row>
+        }
       </mat-expansion-panel>
     } @empty {
       <p class="info-text mat-body-large">No posts added yet!</p>

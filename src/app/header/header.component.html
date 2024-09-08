@@ -1,21 +1,35 @@
 <mat-toolbar class="my-toolbar">
   <a class="app-title" routerLink="/">My Messages</a>
   <nav>
-    <a
-      class="nav-link"
-      mat-button
-      color="accent"
-      routerLink="/create"
-      routerLinkActive="active"
-      >Create Post</a
-    >
-    <a
-      class="nav-link"
-      mat-button
-      color="accent"
-      routerLink="/login"
-      routerLinkActive="active"
-      >Login</a
-    >
+    @if (isAuthenticated) {
+      <a
+        class="nav-link"
+        mat-button
+        color="accent"
+        routerLink="/create"
+        routerLinkActive="active"
+      >
+        Create Post
+      </a>
+      <button
+        type="button"
+        class="nav-link"
+        mat-button
+        color="accent"
+        (click)="logout()"
+      >
+        Logout
+      </button>
+    } @else {
+      <a
+        class="nav-link"
+        mat-button
+        color="accent"
+        routerLink="/login"
+        routerLinkActive="active"
+      >
+        Login
+      </a>
+    }
   </nav>
 </mat-toolbar>

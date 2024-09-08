@@ -1,0 +1,6 @@
+<mat-icon
+  class="{{ data?.status }}"
+  [ngClass]="data?.status + '-icon'"
+  fontIcon="{{ data?.icon }}"
+/>
+<span class="{{ data?.status }}" [innerHTML]="data?.message"></span>

@@ -10,7 +10,7 @@ const app = express();
 
 mongoose
   .connect(
-    "mongodb+srv://<your creads>/node-angular?retryWrites=true&w=majority&appName=AtlasCluster",
+    `mongodb+srv://gendalfwar:${process.env.MONGO_ATLAS_PW}@atlascluster.mhhf9.mongodb.net/node-angular?retryWrites=true&w=majority&appName=AtlasCluster`,
   )
   .then(() => {
     console.log("Connected to database!");
